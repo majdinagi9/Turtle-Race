@@ -1,10 +1,10 @@
-import turtle              # 1.  import the modules
+import turtle              
 import random
 from time import sleep
 
-wn = turtle.Screen()
-wn.setup(1.0,1.0)       
-wn.bgcolor('lightblue')
+window = turtle.Screen()
+window.setup(1.0,1.0)       
+window.bgcolor('gray')
 
 
 stamp_size = 20
@@ -32,7 +32,6 @@ turtleOne = turtle.Turtle()
 turtleTwo = turtle.Turtle()
 turtleThree = turtle.Turtle()
 
-# turtle.write("START", font = ("Aril",10,"bold"))
 turtleOne.color('red')
 turtleTwo.color('blue')
 turtleThree.color('green')
@@ -51,8 +50,24 @@ turtleOne.goto(-190,20)
 turtleTwo.goto(-190,-20)
 turtleThree.goto(-190,60)
 
+start = turtle.Turtle()
+start.penup()
+start.hideturtle()
+start.goto(0, -200)
+start.write("3", font=("Arial", 24, "italic"), align="center")
+sleep(1)
+start.clear()
+start.write("2", font=("Arial", 24, "italic"), align="center")
+sleep(1)
+start.clear()
+start.write("1", font=("Arial", 24, "italic"), align="center")
+sleep(1)
+start.clear()
+start.write("START", font=("Arial", 24, "italic"), align="center")
+sleep(1)
+start.clear()
 
-sleep(3)
+
 turtleOne.down()            
 turtleTwo.down()  
 turtleThree.down()
@@ -62,10 +77,18 @@ for turn in range(150):
  turtleThree.forward(random.randint(1,5))
 
 
+if(turtleOne.xcor()>250):
+ turtle.goto(0, -200)
+ turtle.color("red")
+ turtle.write("Red Turtle Won", font=("Arial", 24, "italic"),align="center") 
+elif(turtleTwo.xcor()>250):
+ turtle.goto(0, -200)
+ turtle.color("blue")
+ turtle.write("Blue Turtle Won", font=("Arial", 24, "italic"),align="center")
+else:
+  turtle.goto(0, -200)
+  turtle.color("green")
+  turtle.write("Green Turtle Won",font=("Arial", 24, "italic"), align="center")
 
-#turtleTwo.goto(random.randrange(1,100),20)
-# turtleOne.goto(random.randrange(1,100),-20)
 
-# your code goes here
-
-wn.exitonclick()
+window.exitonclick()
